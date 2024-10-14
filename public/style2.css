@@ -1,0 +1,95 @@
+/* General styling for the body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Main heading */
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 36px;
+    color: #333;
+}
+
+/* Container for the grid layout of event manager cards */
+#event-manager-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid layout */
+    gap: 20px; /* Space between the cards */
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto; /* Center the grid */
+}
+
+/* Style for each event manager card */
+.card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+/* Style for the event manager name (title) */
+.card h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Style for the event manager details (description, experience, etc.) */
+.card p {
+    font-size: 16px;
+    color: #666;
+    margin: 8px 0;
+}
+
+/* Add a hover effect for the event manager cards */
+.card:hover {
+    transform: translateY(-5px); /* Slightly lift the card on hover */
+}
+
+/* Style for the "Add to Cart" button */
+.add-to-cart {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+/* Add a hover effect to the "Add to Cart" button */
+.add-to-cart:hover {
+    background-color: #0056b3;
+}
+
+/* Add responsive design for smaller screens */
+@media (max-width: 768px) {
+    #event-manager-list {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Smaller cards for mobile */
+        gap: 15px; /* Smaller gap between cards */
+    }
+
+    .card {
+        padding: 15px; /* Adjust padding for mobile */
+    }
+
+    .card h2 {
+        font-size: 22px; /* Slightly smaller heading on mobile */
+    }
+
+    .card p {
+        font-size: 14px; /* Slightly smaller text on mobile */
+    }
+}

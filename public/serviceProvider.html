@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Providers</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header>
+        <h1>Service Providers</h1>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="serviceProvider.html">Service Providers</a>
+            <a href="eventmanager.html">Event Managers</a>
+            <a href="cart.html">Cart</a> <!-- Cart page link -->
+        </nav>
+    </header>
+    
+    <div id="providersList"></div>
+
+    <script>
+        // Fetch all service providers from the API
+        async function fetchServiceProviders() {
+            const response = await fetch('http://localhost:3000/api/serviceProviders');
+            const providers = await response.json();
+            displayProviders(providers);
+        }
+
+        // Display providers on the webpage
+        function displayProviders(providers) {
+            const list = document.getElementById('providersList');
+            list.innerHTML = ''; // Clear the list
+
+            providers.forEach(provider => {
+                const div = document.createElement('div');
+                div.className = 'provider-card'; // Card class
+
+                div.innerHTML = `
+                    <h2>${provider.name}</h2>
+                    <p><strong>Service:</strong> ${provider.service}</p>
+                    <p><strong>Price:</strong> Rs.${provider.price}</p>
+                    <p><strong>Description:</strong> ${provider.description}</p>
+                    <p><strong>Contact:</strong> ${provider.contact}</p>
+                    <p><strong>Location:</strong> ${provider.location}</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                `;
+
+                // Add event listener for "Add to Cart" button
+                const button = div.querySelector('.add-to-cart-btn');
+                button.addEventListener('click', () => addToCart(provider));
+
+                list.appendChild(div);
+            });
+        }
+
+        // Add to Cart function
+        async function addToCart(provider) {
+            const response = await fetch('http://localhost:3000/api/cart', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(provider)
+            });
+            const result = await response.json();
+            alert(`${provider.name} has been added to your cart!`);
+        }
+
+        // Call the function to fetch and display service providers on page load
+        fetchServiceProviders();
+    </script>
+</body>
+</html>

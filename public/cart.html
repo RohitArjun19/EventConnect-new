@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, content-fit=cover">
+    <title>Cart</title>
+    <link rel="stylesheet" href="/cart.css">
+</head>
+<body>
+    <header>
+        <h1>Your Cart</h1>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="serviceProvider.html">Service Providers</a>
+            <a href="eventmanager.html">Event Managers</a>
+        </nav>
+    </header>
+    
+    <div id="cartList"></div>
+
+    <!-- Total Price Card -->
+    <div id="cartSummaryCard">
+        <div id="cartSummary">
+            <p><strong></strong></p>
+            <div id="totalPriceCard">
+                <span id="totalPrice">0</span> <!-- Total price will go here -->
+            </div>
+        </div>
+        <!-- Proceed to Payment Button -->
+        <button id="proceedToPaymentBtn">Proceed to Payment</button>
+    </div>
+
+    <script>
+        // Fetch the cart items from the backend
+        async function fetchCartItems() {
+            const response = await fetch('http://localhost:3000/api/cart');
+            const cartItems = await response.json();
+            displayCartItems(cartItems);
+        }
+
+        // Display cart items on the webpage
+        function displayCartItems(cartItems) {
+            const list = document.getElementById('cartList');
+            list.innerHTML = ''; // Clear the list
+            let totalPrice = 0; // Initialize total price
+
+            if (cartItems.length === 0) {
+                list.innerHTML = '<p>Your cart is empty.</p>';
+                document.getElementById('totalPrice').innerText = 'Total Price: Rs. 0';
+                return;
+            }
+
+            cartItems.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'cart-item'; // Cart item class
+
+                const itemTotalPrice = item.price * (item.quantity || 1); // Calculate item total price
+                totalPrice += itemTotalPrice; // Add to total price
+
+                div.innerHTML = `
+                    <h2>${item.name}</h2>
+                    <p><strong>Service:</strong> ${item.service}</p>
+                    <p><strong>Price:</strong> Rs.${item.price}</p>
+                    <p><strong>Quantity:</strong> ${item.quantity !== undefined ? item.quantity : 1}</p> <!-- Display quantity -->
+                    <p><strong>Total:</strong> Rs.${itemTotalPrice}</p> <!-- Display item total -->
+                    
+                    <button class="remove-from-cart-btn" data-service-id="${item.serviceId}">Remove from Cart</button>
+                `;
+
+                // Add event listener for "Remove from Cart" button
+                const button = div.querySelector('.remove-from-cart-btn');
+                button.addEventListener('click', () => removeFromCart(item.serviceId));
+
+                list.appendChild(div);
+            });
+
+            // Update the total price in the DOM
+            document.getElementById('totalPrice').innerText = ` Total price Rs. ${totalPrice}`;
+        }
+
+        // Remove from Cart function
+        async function removeFromCart(serviceId) {
+            const response = await fetch(`http://localhost:3000/api/cart/remove/${serviceId}`, {
+                method: 'DELETE'
+            });
+            const result = await response.json();
+            // alert('Item removed from your cart');
+            fetchCartItems(); // Reload the cart after removal
+        }
+
+        // Proceed to payment button functionality
+        document.getElementById('proceedToPaymentBtn').addEventListener('click', function() {
+            window.location.href = 'payment.html'; // Redirect to payment page
+        });
+
+        // Fetch and display cart items on page load
+        fetchCartItems();
+    </script>
+</body>
+</html>

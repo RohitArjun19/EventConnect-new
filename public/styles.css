@@ -1,0 +1,311 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navbar Styles */
+header {
+    background-color: #333;
+    padding: 10px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo Styles */
+.logo h1 {
+    color: #fff;
+    font-size: 24px;
+}
+
+/* Navigation Styles */
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Profile and Cart Icon Specific Styles */
+.profile-menu img {
+    vertical-align: middle;
+    border-radius: 50%; /* Optional: Makes the profile image circular */
+}
+
+.nav-link svg {
+    fill: white;
+    transition: fill 0.3s ease;
+}
+
+.nav-link:hover svg {
+    fill: rgba(255, 255, 255, 0.8);
+}
+
+/* Location Search */
+.location-search {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.location label {
+    color: #333;
+    margin-right: 10px;
+}
+
+.location select {
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* Hero Section */
+.hero {
+    background-color: #5a67d8;
+    padding: 60px 0;
+    color: #fff;
+    text-align: center;
+}
+
+.hero .content h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.hero .content p {
+    font-size: 18px;
+}
+
+/* Event Categories Section */
+.categories {
+    padding: 40px 0;
+}
+
+.category-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.category-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.category-card img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.category-card h3 {
+    margin: 15px 0;
+    font-size: 22px;
+    color: #333;
+}
+
+.category-card p {
+    color: #777;
+    font-size: 16px;
+}
+
+.category-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Carousel Section */
+.carousel-section {
+    padding: 40px 0;
+    background-color: #f9f9f9;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-track-container {
+    display: flex;
+    justify-content: center;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 300px;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+button.prev {
+    left: 20px;
+}
+
+button.next {
+    right: 20px;
+}
+
+/* Testimonials Section */
+.testimonials {
+    background-color: #e2e8f0;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.testimonials h2 {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.testimonial-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.testimonial {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial p {
+    font-size: 16px;
+    color: #555;
+}
+
+.testimonial h4 {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+/* Profile Dropdown */
+.profile-menu {
+    position: relative;
+}
+
+.profile-dropdown {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    width: 200px;
+    display: none;
+    z-index: 999;
+}
+
+.profile-dropdown.visible {
+    display: block;
+}
+
+.profile-dropdown p {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.profile-dropdown span {
+    font-weight: bold;
+}
+
+.profile-dropdown button {
+    background-color: #5a67d8;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.profile-dropdown button:hover {
+    background-color: #434190;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .category-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .testimonial-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .carousel-container {
+        padding: 0 10px;
+    }
+}

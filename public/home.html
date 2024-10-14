@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventConnect Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="navbar.css">
+</head>
+
+<body>
+    <!-- Navbar Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>EventConnect</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a class="nav-link" href="serviceProvider.html">Services</a></li>
+                    <li><a class="nav-link" href="eventManager.html">Event Managers</a></li>
+                    <li>
+                        <a class="nav-link" href="cart.html" aria-label="View cart">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+                                <defs><style>.cls-1{fill:#fff;}</style></defs>
+                                <g id="cart">
+                                    <path class="cls-1" d="M29.46,10.14A2.94,2.94,0,0,0,27.1,9H10.22L8.76,6.35A2.67,2.67,0,0,0,6.41,5H3A1,1,0,0,0,3,7H6.41a.68.68,0,0,1,.6.31l1.65,3,.86,9.32a3.84,3.84,0,0,0,4,3.38H23.89a3.92,3.92,0,0,0,3.85-2.78l2.17-7.82A2.58,2.58,0,0,0,29.46,10.14ZM28,11.86l-2.17,7.83A1.93,1.93,0,0,1,23.89,21H13.48a1.89,1.89,0,0,1-2-1.56L10.73,11H27.1a1,1,0,0,1,.77.35A.59.59,0,0,1,28,11.86Z"/>
+                                    <circle class="cls-1" cx="14" cy="26" r="2"/>
+                                    <circle class="cls-1" cx="24" cy="26" r="2"/>
+                                </g>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="profile-menu">
+                        <a class="nav-link" href="#" id='profile-link'>
+                            <img src="man.png" alt="Profile Icon" width="32" height="32">
+                        </a>
+                        <!-- <div class="profile-dropdown" id="profile-dropdown">
+                            <p>Your Email: <span>youremail@example.com</span></p>
+                            <button id="logout-btn">Logout</button>
+                        </div> -->
+                    </li>
+                </ul>
+            </nav>
+            <div class="location-search">
+                <div class="location">
+                    <label for="city">Choose your city:</label>
+                    <select id="city" name="city">
+                        <option value="chennai">Chennai</option>
+                        <option value="bangalore">Bangalore</option>
+                        <option value="mumbai">Mumbai</option>
+                        <option value="delhi">Delhi</option>
+                        <option value="kolkata">Kolkata</option>
+                        <option value="others">Others</option>
+                    </select>
+                </div>
+                
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="content">
+                <h2>Welcome to EventConnect Dashboard</h2>
+                <p>Manage your events, services, and much more.</p>
+            </div>
+        </section>
+
+        <!-- Event Categories Section -->
+        <section class="categories">
+            <div class="category-grid">
+                <div class="category-card" onclick="location.href='eventManager.html';">
+                    <img src="prepared-wedding-hall_8353-9873.avif" alt="Event Managers">
+                    <h3>Event Managers</h3>
+                    <p>Explore and connect with top event managers for your events.</p>
+                </div>
+
+                <div class="category-card" onclick="location.href='serviceProvider.html';">
+                    <img src="top-view-wedding-planning-resources-arrangement_23-2150279503.avif" alt="Service Providers">
+                    <h3>Service Providers</h3>
+                    <p>Find services ranging from catering to decorations for your event.</p>
+                </div>
+
+                <div class="category-card" onclick="location.href='cart.html';">
+                    <img src="cart.jpg" alt="Cart">
+                    <h3>Cart</h3>
+                    <p>View and manage services added to your cart.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Carousel Section -->
+<section class="carousel-section">
+    <div class="carousel-container">
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <div class="carousel-track-container">
+            <ul class="carousel-track">
+                <li class="carousel-slide">
+                    <img src="manage.avif" alt="Event Planning">
+                </li>
+                <li class="carousel-slide">
+                    <img src="prepared-wedding-hall_8353-9873.avif" alt="Wedding Hall Preparation">
+                </li>
+                <li class="carousel-slide">
+                    <img src="top-view-wedding-planning-resources-arrangement_23-2150279503.avif" alt="Wedding Planning">
+                </li>
+                <li class="carousel-slide">
+                    <img src="220-SM741991.jpg" alt="Event Decoration">
+                </li>
+                <li class="carousel-slide">
+                    <img src="SM504144.jpg" alt="Event Decoration">
+                </li>
+                <li class="carousel-slide">
+                    <img src="220-SM677316.jpg" alt="Event Decoration">
+                </li>
+                <li class="carousel-slide">
+                    <img src="220-SM400400.jpg" alt="Event Decoration">
+                </li>
+                <li class="carousel-slide">
+                    <img src="manage.avif" alt="Event Planning">
+                </li>
+                <li class="carousel-slide">
+                    <img src="prepared-wedding-hall_8353-9873.avif" alt="Wedding Hall Preparation">
+                </li>
+                <li class="carousel-slide">
+                    <img src="top-view-wedding-planning-resources-arrangement_23-2150279503.avif" alt="Wedding Planning">
+                </li>
+            </ul>
+        </div>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+</section>
+
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <h2>What Our Users Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p>"EventConnect made planning my wedding so much easier. The event managers and service providers are top-notch!"</p>
+                    <h4>- Jane Doe</h4>
+                </div>
+
+                <div class="testimonial">
+                    <p>"Finding the right caterer and decorators was quick and hassle-free. Great platform!"</p>
+                    <h4>- John Smith</h4>
+                </div>
+
+                <div class="testimonial">
+                    <p>"As an event manager, I love how easy it is to connect with clients. Highly recommend EventConnect."</p>
+                    <h4>- Emily Wang</h4>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="script1.js"></script>
+    <script>
+        // Toggle the visibility of the profile dropdown
+        // Toggle the visibility of the profile dropdown
+document.getElementById('profile-link').addEventListener('click', function (event) {
+    event.preventDefault();
+    const dropdown = document.getElementById('profile-dropdown');
+    dropdown.classList.toggle('visible');
+});
+
+// Close the dropdown when clicked outside
+window.addEventListener('click', function (event) {
+    const dropdown = document.getElementById('profile-dropdown');
+    const profileLink = document.getElementById('profile-link');
+    if (!dropdown.contains(event.target) && event.target !== profileLink) {
+        dropdown.classList.remove('visible');
+    }
+});
+
+// Logout functionality (you can replace this with your real logout logic)
+document.getElementById('logout-btn').addEventListener('click', function () {
+    alert('You have logged out!');
+});
+
+
+        let slideIndex = 0;
+const slides = document.querySelectorAll('.carousel-slide');
+const totalSlides = slides.length;
+
+function moveSlide(direction) {
+    slideIndex += direction;
+    
+    // Loop back to the first or last slide if out of bounds
+    if (slideIndex < 0) {
+        slideIndex = totalSlides - 1;
+    } else if (slideIndex >= totalSlides) {
+        slideIndex = 0;
+    }
+    
+    const carouselTrack = document.querySelector('.carousel-track');
+    const slideWidth = slides[0].offsetWidth;
+    carouselTrack.style.transform = `translateX(-${slideIndex * slideWidth}px)`;
+}
+
+// Toggle the visibility of the profile dropdown
+
+    </script>
+</body>
+
+</html>
